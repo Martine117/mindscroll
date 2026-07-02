@@ -17,11 +17,11 @@ The site opens with a fullscreen quiz that calculates your personal "manipulatio
 
 ## Live URL
 
-[your-deployment-url-here]
+mindscrolll.netlify.app
 
 ## GitHub Repository
 
-[your-repo-url-here]
+https://github.com/Martine117/mindscroll
 
 ---
 
@@ -104,7 +104,7 @@ Implemented on `timeline.html`. The `.timeline` container uses `display: flex; f
 
 ## Screenshots
 
-*(Add screenshots at mobile, tablet, and desktop widths here — take them after deployment)*
+All screenshots are in the "Screenshots" folder
 
 ---
 
