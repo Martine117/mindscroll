@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timeline — MindScroll</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/timeline.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Mind<span>Scroll</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="timeline.html">Timeline</a></li>
+          <li class="nav-item"><a class="nav-link" href="explorer.html">Explorer</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-eyebrow">Chronological History</div>
+      <h1 class="page-hero-title">How Social Media<br/>Learned to Own You</h1>
+      <p class="page-hero-sub">From the first online community in 1985 to AI-generated feeds today — a decade-by-decade look at how platforms evolved their grip on human psychology.</p>
+    </div>
+  </section>
+
+  <!-- TIMELINE SECTION -->
+  <!--
+    UNIQUE REQUIREMENT: Timeline-style section using Flexbox
+    Each .timeline-item uses flexbox to align the year/dot/content side by side.
+    The central spine is created with a CSS pseudo-element.
+    On mobile, the layout collapses to a single column using flex-direction: column.
+    See css/timeline.css for full implementation.
+  -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="timeline">
+
+        <div class="timeline-item left" data-year="1985">
+          <div class="timeline-content">
+            <div class="tl-year">1985</div>
+            <div class="tl-tag">The Beginning</div>
+            <h3>The WELL — First Online Community</h3>
+            <p>The Whole Earth 'Lectronic Link launched in 1985, creating one of the first online communities. People paid per hour to discuss ideas, forming genuine connections. No algorithm. No ads. No engagement metrics. Just humans talking.</p>
+            <div class="tl-insight">💡 Insight: Early social spaces were <em>pull</em> — you chose what to read. Today's platforms are <em>push</em> — they decide for you.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item right" data-year="1997">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-year">1997</div>
+            <div class="tl-tag">Birth of Social</div>
+            <h3>Six Degrees — The First Social Network</h3>
+            <p>SixDegrees.com let users create profiles and list friends — the first true social network. It reached 3.5 million users but shut down in 2001. Founder Andrew Weinreich later said the world "wasn't ready." He was two years early to a gold rush.</p>
+            <div class="tl-insight">💡 Insight: The architecture was already there. The addiction mechanisms weren't invented yet.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item left" data-year="2004">
+          <div class="timeline-content">
+            <div class="tl-year">2004</div>
+            <div class="tl-tag">The Tipping Point</div>
+            <h3>Facebook Launches — and Changes the Game</h3>
+            <p>Mark Zuckerberg launched "TheFacebook" from his Harvard dorm. Within a month, half of Harvard was on it. The key innovation wasn't the profile — it was the social graph. For the first time, your real identity was tied to your digital presence. Anonymity died.</p>
+            <div class="tl-insight">💡 Insight: Real identity = higher emotional stakes = more engagement. This was intentional.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item right" data-year="2006">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-year">2006</div>
+            <div class="tl-tag">The Trap is Built</div>
+            <h3>Infinite Scroll Invented by Aza Raskin</h3>
+            <p>Working at a startup, Aza Raskin invented infinite scroll to make browsing smoother. He never considered the psychological consequences. By removing the natural break point of pagination, he eliminated the moment of conscious choice. You never decide to keep scrolling. You just do.</p>
+            <div class="tl-insight">💡 Insight: "I've spent many sleepless nights wondering whether I've made the world a worse place." — Aza Raskin, 2018</div>
+          </div>
+        </div>
+
+        <div class="timeline-item left" data-year="2009">
+          <div class="timeline-content">
+            <div class="tl-year">2009</div>
+            <div class="tl-tag">Dopamine, Quantified</div>
+            <h3>The Facebook Like Button Launches</h3>
+            <p>Originally called the "Awesome" button, the Like was launched Feb 9, 2009. It was the moment social media became a validation machine. Every post became a bet: will people approve of me? The unpredictable reward of likes maps directly onto variable-ratio reinforcement — the same mechanism behind gambling addiction.</p>
+            <div class="tl-insight">💡 Insight: Former Facebook president Sean Parker admitted: "We gave you a little dopamine hit."</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item right" data-year="2011">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-year">2011</div>
+            <div class="tl-tag">Snapchat's Streak Trap</div>
+            <h3>Snapchat Launches — and Invents FOMO Engineering</h3>
+            <p>Snapchat's streak feature (added 2015) became one of the most psychologically powerful features ever built. Teens have missed family funerals and surgeries to maintain streaks. The feature exploits loss aversion: once a streak exists, losing it feels like a real loss — even if it never added value to begin with.</p>
+            <div class="tl-insight">💡 Insight: Snapchat's internal name for engagement: "Streaks and Scores." Pure behavioral design.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item left" data-year="2016">
+          <div class="timeline-content">
+            <div class="tl-year">2016</div>
+            <div class="tl-tag">The Algorithm Takes Over</div>
+            <h3>Facebook & Instagram Kill the Chronological Feed</h3>
+            <p>Until 2016, feeds showed posts in order. Then platforms switched to algorithmic curation — showing content predicted to generate the most engagement. The algorithm doesn't show you what's true, important, or healthy. It shows you what will make you react. Anger and outrage drive more engagement than joy. The algorithm learned this fast.</p>
+            <div class="tl-insight">💡 Insight: A Facebook internal study found that 64% of people who joined extremist groups were led there by the recommendation algorithm.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item right" data-year="2018">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-year">2018</div>
+            <div class="tl-tag">The Whistleblower Era</div>
+            <h3>Tristan Harris Testifies Before Congress</h3>
+            <p>Former Google Design Ethicist Tristan Harris brought the concept of "persuasive technology" to mainstream consciousness. He described how every element of social media — from notification timing to interface color — is tested and optimized to maximize compulsive use. This testimony seeded the movement for tech regulation.</p>
+            <div class="tl-insight">💡 Insight: Harris coined the term "race to the bottom of the brain stem" — platforms compete to trigger the most primitive reactions.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item left" data-year="2020">
+          <div class="timeline-content">
+            <div class="tl-year">2020</div>
+            <div class="tl-tag">The For You Era</div>
+            <h3>TikTok's Algorithm Redefines Addiction</h3>
+            <p>TikTok's For You Page (FYP) is the most powerful recommendation engine ever deployed on consumers. It doesn't rely on your social graph. It studies your micro-behaviors — when you pause, rewatch, skip — and builds a psychological profile within minutes. New users report feeling "seen" by the algorithm. That feeling is engineered.</p>
+            <div class="tl-insight">💡 Insight: The average TikTok session is 10.85 minutes. The average attention span in 2000 was 12 seconds. In 2024: 8 seconds.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item right" data-year="2021">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-year">2021</div>
+            <div class="tl-tag">The Facebook Papers</div>
+            <h3>Frances Haugen Leaks Internal Research</h3>
+            <p>Facebook whistleblower Frances Haugen leaked thousands of internal documents showing the company knew Instagram was harming teen girls' mental health, knew its algorithm amplified political extremism, and chose growth over safety at every turn. The documents showed internal research saying: "We make body image issues worse for one in three teen girls."</p>
+            <div class="tl-insight">💡 Insight: Facebook's internal motto was once "Move fast and break things." The things they broke included people.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item left" data-year="2024">
+          <div class="timeline-content">
+            <div class="tl-year">2024</div>
+            <div class="tl-tag">AI Takes the Wheel</div>
+            <h3>Generative AI Enters the Feed</h3>
+            <p>Meta, TikTok, and YouTube now deploy generative AI not just to recommend content — but to create it. AI-generated influencers, AI-written posts, AI-optimized thumbnails. The content you consume is increasingly made by machines trained to maximize your reaction. The line between organic and engineered human experience is gone.</p>
+            <div class="tl-insight">💡 Insight: You may already be having parasocial relationships with people who don't exist.</div>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Mind<span>Scroll</span></div>
+        <div class="footer-note">A research project on the psychology of social media. Built for educational purposes.</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="explorer.html">Explorer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/timeline.js"></script>
+</body>
+</html>
