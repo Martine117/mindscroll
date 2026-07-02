@@ -1,0 +1,348 @@
+/* ============================================================
+   MindScroll -- Explorer / Manipulation Toolkit CSS
+   ============================================================ */
+
+/* ── CONTROLS ── */
+.explorer-controls {
+  padding: 2.5rem 0 2rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.controls-row {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-wrap { position: relative; flex: 1; min-width: 240px; max-width: 460px; }
+
+.explorer-search {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 0.85rem 1rem 0.85rem 2.8rem;
+  border-radius: 3px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.explorer-search::placeholder { color: var(--text-muted); }
+.explorer-search:focus { border-color: var(--accent); }
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.filter-wrap { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+
+.filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.55rem 1.2rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 700; }
+
+/* ── ALERT ── */
+.alert-box { margin-top: 1rem; padding: 0.7rem 1.2rem; border-radius: 3px; font-size: 0.82rem; display: none; text-align: center; }
+.alert-box.show  { display: block; }
+.alert-box.info  { background: var(--accent-dim); border: 1px solid rgba(201,168,76,0.2); color: var(--accent-light); }
+.alert-box.error { background: rgba(255,77,77,0.08); border: 1px solid rgba(255,77,77,0.2); color: #ff6b6b; }
+
+/* ── TOOLKIT SECTION ── */
+.explorer-section {
+  padding: 5rem 0 6rem;
+  background: var(--bg);
+}
+
+/* ── TOOLKIT GRID -- Big cards with icon, hover reveal ── */
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 0;
+}
+
+/* Each card: fixed height, icon on front, full info on hover */
+.explorer-card {
+  position: relative;
+  height: 300px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.explorer-card:hover {
+  border-color: rgba(201,168,76,0.45);
+  transform: translateY(-4px);
+}
+
+/* Gold top bar that grows on hover */
+.explorer-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 3;
+}
+.explorer-card:hover::before { opacity: 1; }
+
+/* ── CARD FRONT (always visible) ── */
+.card-front {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 1;
+}
+
+.explorer-card:hover .card-front {
+  opacity: 0;
+  transform: translateY(-16px);
+  pointer-events: none;
+}
+
+.card-icon {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+  filter: grayscale(0.2);
+}
+
+.card-front h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.card-teaser {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.card-front-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+}
+
+.tag-cognitive { background: var(--accent-dim); color: var(--accent); }
+.tag-design    { background: rgba(100,160,255,0.1); color: #7ab0ff; }
+.tag-social    { background: rgba(200,140,255,0.1); color: #c48cff; }
+
+/* ── CARD BACK (revealed on hover) ── */
+.card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.8rem 1.6rem;
+  text-align: center;
+  background: var(--surface);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 2;
+}
+
+.explorer-card:hover .card-back {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-back-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.card-back p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 0.9rem;
+  flex: 1;
+}
+
+.card-platforms {
+  font-size: 0.68rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.75;
+}
+
+/* ── EMPTY STATE ── */
+.empty-state {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ── SECTION DIVIDER ── */
+.section-divider { padding: 0; background: var(--bg); }
+.divider-line { height: 1px; background: var(--border); }
+
+/* ── API SECTION ── */
+.api-section {
+  padding: 6rem 0 7rem;
+  background: var(--bg-2);
+}
+
+.api-search-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── LOADING ── */
+.loading-spinner { text-align: center; padding: 3rem; color: var(--text-muted); }
+.spinner {
+  width: 28px; height: 28px;
+  border: 2px solid var(--border-light);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-state {
+  background: rgba(255,77,77,0.07);
+  border: 1px solid rgba(255,77,77,0.18);
+  border-radius: 3px;
+  padding: 1.2rem;
+  color: #ff6b6b;
+  font-size: 0.88rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* ── QUOTE CARDS ── */
+.api-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.api-fact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.api-fact-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-2px);
+}
+
+.fact-label {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.api-fact-card p {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.fact-author {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+.fallback-notice {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 0 0 0.5rem;
+  margin: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 991px) {
+  .toolkit-grid { grid-template-columns: repeat(2, 1fr); }
+  .api-results  { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .explorer-card { height: 280px; }
+}
+
+@media (max-width: 575px) {
+  .toolkit-grid { grid-template-columns: 1fr; }
+  .api-results  { grid-template-columns: 1fr; }
+  .controls-row { flex-direction: column; align-items: stretch; }
+  .search-wrap  { max-width: 100%; }
+}

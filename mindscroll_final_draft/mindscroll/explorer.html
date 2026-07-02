@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Manipulation Toolkit — MindScroll</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/explorer.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Mind<span>Scroll</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="timeline.html">Timeline</a></li>
+          <li class="nav-item"><a class="nav-link active" href="explorer.html">Toolkit</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-eyebrow">Decoded for you</div>
+      <h1 class="page-hero-title">The Manipulation<br/><em>Toolkit</em></h1>
+      <p class="page-hero-sub">18 psychological weapons that social media platforms use against you — every single day. Search, filter, and understand the tricks designed to keep you scrolling.</p>
+    </div>
+  </section>
+
+  <!-- SEARCH & FILTER -->
+  <section class="explorer-controls">
+    <div class="container">
+      <div class="controls-row">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="searchInput" class="explorer-search" placeholder="Search a weapon, platform, or concept..." aria-label="Search" />
+        </div>
+        <div class="filter-wrap">
+          <button class="filter-btn active" data-filter="all">All 18</button>
+          <button class="filter-btn" data-filter="cognitive">🧠 Cognitive</button>
+          <button class="filter-btn" data-filter="design">⚙️ Design</button>
+          <button class="filter-btn" data-filter="social">👥 Social</button>
+        </div>
+      </div>
+      <div id="alertBox" class="alert-box" role="alert" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT CARDS -->
+  <section class="explorer-section">
+    <div class="container">
+      <div class="toolkit-grid" id="explorerGrid"></div>
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <p>No weapons found for that search. Try "dopamine", "scroll", or "Instagram".</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="section-divider">
+    <div class="container">
+      <div class="divider-line"></div>
+    </div>
+  </div>
+
+  <!-- API QUOTES SECTION -->
+  <section class="api-section">
+    <div class="container">
+      <div class="section-eyebrow">From thinkers & researchers</div>
+      <h2 class="section-title sm">What the experts say</h2>
+      <p class="section-body sm">Search any theme — fear, mind, technology, happiness — and get matching quotes from philosophers, scientists, and writers.</p>
+      <div class="api-search-row">
+        <div class="search-wrap" style="max-width:440px; flex:1;">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="apiSearchInput" class="explorer-search" placeholder="Try: mind, fear, technology, love..." />
+        </div>
+        <button class="btn-primary-custom sm" id="apiFetchBtn">Search Quotes</button>
+      </div>
+      <div class="loading-spinner" id="loadingSpinner" style="display:none;">
+        <div class="spinner"></div>
+        <p>Fetching quotes...</p>
+      </div>
+      <div class="error-state" id="errorState" style="display:none;">
+        <p>Could not connect to the API. Showing curated quotes instead.</p>
+      </div>
+      <div class="api-results" id="apiResults"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Mind<span>Scroll</span></div>
+        <div class="footer-note">A research project on the psychology of social media.<br/>Built for educational purposes.</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="explorer.html">Toolkit</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/explorer.js?v=4"></script>
+</body>
+</html>

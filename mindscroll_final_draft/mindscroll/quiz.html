@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindScroll — Are You Being Manipulated?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body>
+
+  <div class="quiz-shell" id="quizShell">
+
+    <!-- INTRO SCREEN -->
+    <div class="screen active" id="screenIntro">
+      <div class="screen-inner">
+        <div class="brand">Mind<span>Scroll</span></div>
+        <div class="intro-tag">Before you enter</div>
+        <h1 class="intro-title">Are you being<br/><em>manipulated?</em></h1>
+        <p class="intro-sub">5 questions. 60 seconds. Find out how deep the algorithm has its hooks in you.</p>
+        <button class="btn-start" id="btnStart">Take the test →</button>
+        <button class="btn-skip" id="btnSkip">I already know — enter the site</button>
+      </div>
+      <div class="bg-glow"></div>
+    </div>
+
+    <!-- QUESTION SCREENS -->
+    <div class="screen" id="screenQuiz">
+      <div class="quiz-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <span class="progress-label" id="progressLabel">1 / 5</span>
+      </div>
+      <div class="screen-inner">
+        <div class="q-number" id="qNumber">01</div>
+        <h2 class="q-text" id="qText"></h2>
+        <div class="q-options" id="qOptions"></div>
+      </div>
+      <div class="bg-glow"></div>
+    </div>
+
+    <!-- CALCULATING SCREEN -->
+    <div class="screen" id="screenCalc">
+      <div class="screen-inner calc-inner">
+        <div class="calc-rings">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <div class="calc-label">Analyzing<br/>your data</div>
+        </div>
+        <p class="calc-sub">Cross-referencing your responses with known manipulation patterns...</p>
+      </div>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div class="screen" id="screenResult">
+      <div class="screen-inner result-inner">
+        <div class="result-top">
+          <div class="result-tag">Your result</div>
+          <div class="result-type" id="resultType"></div>
+          <div class="result-emoji" id="resultEmoji"></div>
+        </div>
+
+        <div class="score-ring-wrap">
+          <svg class="score-ring" viewBox="0 0 160 160">
+            <circle class="ring-bg" cx="80" cy="80" r="64"/>
+            <circle class="ring-fill" id="ringFill" cx="80" cy="80" r="64"/>
+          </svg>
+          <div class="score-center">
+            <span class="score-number" id="scoreNumber">0</span>
+            <span class="score-pct">%</span>
+            <span class="score-word">manipulated</span>
+          </div>
+        </div>
+
+        <p class="result-desc" id="resultDesc"></p>
+
+        <div class="result-mechanisms" id="resultMechanisms"></div>
+
+        <div class="result-actions">
+          <a href="index.html" class="btn-enter" id="btnEnter">Enter MindScroll →</a>
+          <button class="btn-retry" id="btnRetry">Retake the test</button>
+        </div>
+      </div>
+      <div class="bg-glow result-glow" id="resultGlow"></div>
+    </div>
+
+  </div>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>
